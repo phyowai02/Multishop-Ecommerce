@@ -14,11 +14,14 @@ const HomePage = () => {
 
   const getShop = async () => {
     try {
-      const response = await axios(`http://192.168.1.11:8090/api/adminuser`, {
-        headers: {
-          "x-access-token": token,
-        },
-      });
+      const response = await axios(
+        `https://multishop-ecommerce-wbac.onrender.com/api/adminuser`,
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      );
       setShopList(response.data);
     } catch (error) {
       console.error("Fetch error:", error);

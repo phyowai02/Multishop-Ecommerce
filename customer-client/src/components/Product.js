@@ -37,11 +37,14 @@ const Product = () => {
   const getProducts = async () => {
     setLoading(true);
     try {
-      const response = await axios.get("http://192.168.1.11:8090/api/product", {
-        headers: {
-          "x-access-token": token,
-        },
-      });
+      const response = await axios.get(
+        "https://multishop-ecommerce-wbac.onrender.com/api/product",
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      );
       setProductList(response.data);
     } catch (error) {
       console.error("Fetch error:", error);
@@ -54,7 +57,7 @@ const Product = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `http://192.168.1.11:8090/api/product/admin/${adminId}`,
+        `https://multishop-ecommerce-wbac.onrender.com/api/product/admin/${adminId}`,
         {
           headers: {
             "x-access-token": token,

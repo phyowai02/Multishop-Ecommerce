@@ -63,7 +63,7 @@ const CartDisplay = () => {
         };
 
         const response = await axios.post(
-          "http://192.168.1.11:8090/api/order/create",
+          "https://multishop-ecommerce-wbac.onrender.com/api/order/create",
           orderData,
           {
             headers: {

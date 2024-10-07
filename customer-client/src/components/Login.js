@@ -32,8 +32,8 @@ const Login = () => {
 
     try {
       const endpoint = isSignUp
-        ? `http://192.168.1.11:8090/api/customer/create`
-        : `http://192.168.1.11:8090/api/customer/login`;
+        ? `https://multishop-ecommerce-wbac.onrender.com/api/customer/create`
+        : `https://multishop-ecommerce-wbac.onrender.com/api/customer/login`;
 
       const response = await axios.post(endpoint, {
         username: inputName,

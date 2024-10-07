@@ -11,7 +11,7 @@ const ProductDetail = ({
   getProducts,
   clearSelectedProduct,
   openModalForUpdate,
-  token
+  token,
 }) => {
   const [loading, setLoading] = useState(true);
 
@@ -56,11 +56,14 @@ const ProductDetail = ({
         await deleteImagesFromFirebase(selectedProduct.imgURLs);
 
         // Delete the product from Mongo
-        await axios.delete(`http://localhost:8090/api/product/${id}`, {
-          headers: {
-            "x-access-token": token,
-          },
-        });
+        await axios.delete(
+          `https://multishop-ecommerce-wbac.onrender.com/api/product/${id}`,
+          {
+            headers: {
+              "x-access-token": token,
+            },
+          }
+        );
         console.log("Deleted successfully!");
         getProducts();
         clearSelectedProduct();

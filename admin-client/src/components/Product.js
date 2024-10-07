@@ -10,8 +10,7 @@ import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 import { AiTwotoneMinusCircle } from "react-icons/ai";
 
-const Product = ({token}) => {
-
+const Product = ({ token }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [update, setUpdate] = useState(false);
@@ -72,11 +71,14 @@ const Product = ({token}) => {
   const getProducts = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:8090/api/product/admin/${adminId}`, {
-        headers: {
-          "x-access-token": token,
-        },
-      });
+      const response = await axios.get(
+        `https://multishop-ecommerce-wbac.onrender.com/api/product/admin/${adminId}`,
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      );
       setProductList(response.data);
     } catch (error) {
       console.error("Fetch error:", error);
@@ -87,11 +89,14 @@ const Product = ({token}) => {
 
   const getUnits = async () => {
     try {
-      const response = await axios.get("http://localhost:8090/api/unit/", {
-        headers: {
-          "x-access-token": token,
-        },
-      });
+      const response = await axios.get(
+        "https://multishop-ecommerce-wbac.onrender.com/api/unit/",
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      );
       setUnit(response.data.units || response.data);
     } catch (error) {
       console.log(error);
@@ -217,13 +222,13 @@ const Product = ({token}) => {
         price: inputPrice,
         weight: sizes,
         color: colors,
-        adminId
+        adminId,
       };
 
       if (update) {
         // Update existing product logic
         await axios.put(
-          `http://localhost:8090/api/product/${selectedProduct._id}`,
+          `https://multishop-ecommerce-wbac.onrender.com/api/product/${selectedProduct._id}`,
           productData,
           {
             headers: {
@@ -234,11 +239,15 @@ const Product = ({token}) => {
         showToast("Product updated successfully!", "success");
         clearSelectedProduct();
       } else {
-        await axios.post("http://localhost:8090/api/product", productData, {
-          headers: {
-            "x-access-token": token,
-          },
-        });
+        await axios.post(
+          "https://multishop-ecommerce-wbac.onrender.com/api/product",
+          productData,
+          {
+            headers: {
+              "x-access-token": token,
+            },
+          }
+        );
         showToast("Product added successfully!", "success");
       }
       getProducts();

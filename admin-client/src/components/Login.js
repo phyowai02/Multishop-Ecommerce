@@ -36,8 +36,8 @@ const Login = ({ setId, setUsername, setrole }) => {
 
     try {
       const endpoint = isSignUp
-        ? `http://localhost:8090/api/adminuser/create`
-        : `http://localhost:8090/api/adminuser/login`;
+        ? `https://multishop-ecommerce-wbac.onrender.com/api/adminuser/create`
+        : `https://multishop-ecommerce-wbac.onrender.com/api/adminuser/login`;
 
       const response = await axios.post(endpoint, {
         username: inputName,

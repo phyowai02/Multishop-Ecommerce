@@ -45,11 +45,14 @@ const OrderDetail = ({ token }) => {
   const fetchAdmin = async () => {
     setLoading(true);
     try {
-      const response = await axios(`http://localhost:8090/api/adminuser/`, {
-        headers: {
-          "x-access-token": token,
-        },
-      });
+      const response = await axios(
+        `https://multishop-ecommerce-wbac.onrender.com/api/adminuser/`,
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      );
       setAdmin(response.data);
     } catch (error) {
       console.error("Failed to fetch admin: ", error);
@@ -61,10 +64,10 @@ const OrderDetail = ({ token }) => {
   const fetchOrders = async (role, adminId) => {
     setLoading(true);
     try {
-      let url = "http://localhost:8090/api/order/";
+      let url = "https://multishop-ecommerce-wbac.onrender.com/api/order/";
 
       if (role === "shop admin") {
-        url = `http://localhost:8090/api/order/admin/${adminId}`;
+        url = `https://multishop-ecommerce-wbac.onrender.com/api/order/admin/${adminId}`;
       }
 
       const response = await axios.get(url, {

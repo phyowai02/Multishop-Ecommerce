@@ -39,11 +39,14 @@ const Dashboard = ({ token }) => {
 
   const fetchOrders = async (role, adminId) => {
     try {
-      const response = await axios.get("http://localhost:8090/api/order/", {
-        headers: {
-          "x-access-token": token,
-        },
-      });
+      const response = await axios.get(
+        "https://multishop-ecommerce-wbac.onrender.com/api/order/",
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      );
 
       const fetchedOrders = response.data.orders;
 

@@ -6,7 +6,7 @@ import Spinner from "./Spinner";
 import { RiDeleteBin7Fill } from "react-icons/ri";
 import { AiFillEdit } from "react-icons/ai";
 
-const Unit = ({token}) => {
+const Unit = ({ token }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [modalType, setModalType] = useState("");
   const [datalist, setDataList] = useState([]);
@@ -42,11 +42,14 @@ const Unit = ({token}) => {
     setLoading(true);
     setError(null);
     try {
-      const response = await axios.get("http://localhost:8090/api/unit", {
-        headers: {
-          "x-access-token": token,
-        },
-      });
+      const response = await axios.get(
+        "https://multishop-ecommerce-wbac.onrender.com/api/unit",
+        {
+          headers: {
+            "x-access-token": token,
+          },
+        }
+      );
       if (response.data.units && Array.isArray(response.data.units)) {
         setDataList(response.data.units);
       } else {
@@ -70,7 +73,7 @@ const Unit = ({token}) => {
     setError(null);
     try {
       await axios.post(
-        "http://localhost:8090/api/unit",
+        "https://multishop-ecommerce-wbac.onrender.com/api/unit",
         { name: newUnit, short: unitShort },
         {
           headers: {
@@ -94,11 +97,11 @@ const Unit = ({token}) => {
       alert("Please fill in both unit name and short form");
       return;
     }
-  
+
     setLoading(true);
     try {
       await axios.put(
-        `http://localhost:8090/api/unit/${updateId}`,
+        `https://multishop-ecommerce-wbac.onrender.com/api/unit/${updateId}`,
         { name: newUnit1, short: unitShort1 },
         {
           headers: {
@@ -117,18 +120,21 @@ const Unit = ({token}) => {
     } finally {
       setLoading(false);
     }
-  };  
+  };
 
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this unit?")) {
       setLoading(true);
       setError(null);
       try {
-        await axios.delete(`http://localhost:8090/api/unit/${id}`, {
-          headers: {
-            "x-access-token": token,
-          },
-        });
+        await axios.delete(
+          `https://multishop-ecommerce-wbac.onrender.com/api/unit/${id}`,
+          {
+            headers: {
+              "x-access-token": token,
+            },
+          }
+        );
         getUnit();
       } catch (error) {
         setError("Failed to delete unit");

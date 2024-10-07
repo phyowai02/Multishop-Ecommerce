@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    -webkit-user-select: none;
+}
+
+.amount {
+    color: #9F77FE;
+}
+
+.dodo {
+    /* background-color: #7F7FFF; */
+    background-image: url('./assets/images/ghibliGIFs.gif');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.fdodo:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.sideB {
+    background-color: #E3E9F7;
+}
+
+.log-out:hover{
+    background-color: chocolate;
+    transition: all 0.6s;
+    color: white;
+}
+
+.udicon1 {
+    color: white;
+}
+
+.udicon:hover {
+    .udicon1 {
+        color: black;
+        transition: all 1s;
+    }
+}
+
+/* Custom scrollbar styles */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.spinner {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+  
+.spinner div {
+    position: absolute;
+    top: 37px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #333;
+    animation: bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    left: 0;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    left: 30px;
+    animation-delay: -0.16s;
+}
+
+.spinner .bounce3 {
+    left: 60px;
+    animation-delay: 0;
+}
+
+@keyframes bouncedelay {
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+.color-box {
+    position: relative;
+}
+  
+.color-box:hover .hex-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hex-tooltip {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px;
+    background-color: #333;
+    color: white;
+    font-size: 10px;
+    border-radius: 3px;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+/* Toggle Switch
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 20px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 12px;
+    width: 12px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+}
+
+input:checked + .slider {
+    background-color: #4caf50;
+}
+
+input:checked + .slider:before {
+    transform: translateX(14px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Dark Mode Styling */
+/* .dark {
+    background-color: #121212;
+    color: white;
+}
+
+.dark .sideB {
+    background-color: #1e1e1e;
+    color: white;
+}
+
+.dark .bg-lime-600 {
+    background-color: #6d6d6d;
+}
+
+.dark .text-gray-500 {
+    color: #e0e0e0;
+}
+
+.dark .border-gray-400 {
+    border-color: #333;
+}  */
+
+
+
+
